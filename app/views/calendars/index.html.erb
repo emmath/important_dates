@@ -1,0 +1,27 @@
+<h1>Calendar Events</h1>
+
+What's going on this month? Let's keep track!
+
+<table>
+  <tr>
+    <th>Event</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @calendars.each do |calendar| %>
+  <tr>
+    <td><%= calendar.event %></td>
+    <td><%= calendar.date %></td>
+    <td><%= link_to 'Show', calendar %></td>
+    <td><%= link_to 'Edit', edit_calendar_path(calendar) %></td>
+    <td><%= link_to 'Destroy', calendar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Calendar Event', new_calendar_path %>
